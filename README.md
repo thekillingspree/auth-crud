@@ -4,6 +4,24 @@ This project was created as an learning experiment by implementing Authenticatio
 
 Since this is purely for learning purposes, it is not recommended to use this in production. In production, a battle-tested library like Passport is recommended to be used.
 
+## Implementations
+
+- [x] Login, Register, Logout
+- [x] Mongo DB based database
+- [x] Globally distributed session store using Cosmos DB and [connect-cosmosdb](https://www.npmjs.com/package/connect-cosmosdb) store for express-session.
+- [x] Email Verification
+- [x] Reset Passwords
+- [x] Phone based MFA
+- [x] TOTP based MFA to be used with apps like Microsoft Authenticator, Google Authenticator, Authy etc.
+- [x] Encryption of sensitive data using AES-256-GCM. Secrets are securely stored in Azure Key Vault.
+- [x] CSRF protection, using HMAC generated tokens and double submit cookie pattern.
+
+**Todo**
+
+- [ ] Session and device management
+- [ ] Email alerts for suspicious login activity
+- [ ] OAuth and OpenID for Self, Google, Entra ID.
+
 ## Running Locally
 
 1. Install dependencies
@@ -40,21 +58,3 @@ npm run build
 ```bash
 npm start
 ```
-
-## Implementations
-
-- [x] Login, Register, Logout
-- [x] Mongo DB based database
-- [x] Globally distributed session store using Cosmos DB and [connect-cosmosdb](https://www.npmjs.com/package/connect-cosmosdb) store for express-session.
-- [x] Email Verification
-- [x] Reset Passwords
-- [x] Phone based MFA
-- [x] TOTP based MFA to be used with apps like Microsoft Authenticator, Google Authenticator, Authy etc.
-- [x] Encryption of sensitive data using AES-256-GCM. Secrets are securely stored in Azure Key Vault.
-- [x] CSRF protection, using HMAC generated tokens and double submit cookie pattern.
-
-**Todo**
-
-- [ ] Session and device management
-- [ ] Email alerts for suspicious login activity
-- [ ] OAuth and OpenID for Self, Google, Entra ID.
