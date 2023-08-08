@@ -10,7 +10,7 @@
     "build": "tsc",
     "clean": "rm -rf ./lib/",
     "lint": "eslint ./src/ --fix",
-    "prepare": "husky install",
+    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
     "start": "node ./dist/index.js",
     "typecheck": "tsc --noEmit",
     "fmt": "prettier --write .",
