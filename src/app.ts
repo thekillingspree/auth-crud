@@ -1,7 +1,12 @@
 import express from 'express';
 import morgan from 'morgan';
 import { authRouter, mfaRouter, userRouter } from './routes';
-import { csrfCheck, errorMiddleware, notFoundMiddleware } from './middlewares';
+import {
+  alwaysOnMiddleware,
+  csrfCheck,
+  errorMiddleware,
+  notFoundMiddleware,
+} from './middlewares';
 import session from 'express-session';
 import { KeyProvider, isProduction } from './utils';
 import { SESSION_KEY } from './types';
@@ -75,6 +80,9 @@ export default async function initServer() {
 
   //CSRF Check - Double Submit CSRF
   app.use(csrfCheck);
+
+  //App Service Always On
+  app.use(alwaysOnMiddleware);
 
   //Routes
   app.use('/api/auth', authRouter);
