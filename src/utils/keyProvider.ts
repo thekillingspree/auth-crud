@@ -102,7 +102,6 @@ export class KeyProvider {
 
       return Buffer.concat([decrypted, decipher.final()]).toString('utf8');
     } catch (error) {
-      console.error(error);
       throw new AppError(
         'Could not decrypt the data',
         ['data'],

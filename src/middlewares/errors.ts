@@ -5,7 +5,6 @@ import { isProduction } from '../utils';
 export const notFoundMiddleware: Handler = (_, res, next) => {
   res.status(404);
   const error = new AppError('Not found', ['url'], ErrorCode.NOT_FOUND);
-  console.log(error);
   next(error);
 };
 
@@ -22,7 +21,6 @@ interface ErrorResponse {
 export const errorMiddleware: ErrorRequestHandler = (err, _, res, _next) => {
   const status = res.statusCode === 200 ? 500 : res.statusCode;
   const { message, stack } = err;
-  console.error('HITS');
 
   const error: ErrorResponse = {
     message,
